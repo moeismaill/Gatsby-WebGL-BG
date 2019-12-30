@@ -1,88 +1,54 @@
-import React, { Fragment } from 'react'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
-import Meta from './Meta'
-import Nav from './Nav'
-import Footer from './Footer'
-import GithubCorner from './GithubCorner'
+/**
+ * Layout component that queries for data
+ * with Gatsby's useStaticQuery component
+ *
+ * See: https://www.gatsbyjs.org/docs/use-static-query/
+ */
 
-import 'modern-normalize/modern-normalize.css'
-import './globalStyles.css'
+import React from "react"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
-export default ({ children, meta, title }) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query IndexLayoutQuery {
-          settingsYaml {
-            siteTitle
-            siteDescription
-            googleTrackingId
-            socialMediaCard {
-              image
-            }
-          }
-          allPosts: allMarkdownRemark(
-            filter: { fields: { contentType: { eq: "postCategories" } } }
-            sort: { order: DESC, fields: [frontmatter___date] }
-          ) {
-            edges {
-              node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  title
-                }
-              }
-            }
-          }
+import Header from "./header"
+import "./layout.css"
+
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
         }
-      `}
-      render={data => {
-        const { siteTitle, socialMediaCard, googleTrackingId } =
-            data.settingsYaml || {},
-          subNav = {
-            posts: data.allPosts.hasOwnProperty('edges')
-              ? data.allPosts.edges.map(post => {
-                  return { ...post.node.fields, ...post.node.frontmatter }
-                })
-              : false
-          }
+      }
+    }
+  `)
 
-        return (
-          <Fragment>
-            <Helmet
-              defaultTitle={siteTitle}
-              titleTemplate={`%s | ${siteTitle}`}
-            >
-              {title}
-              <link href="https://ucarecdn.com" rel="preconnect" crossorigin />
-              <link rel="dns-prefetch" href="https://ucarecdn.com" />
-              {/* Add font link tags here */}
-            </Helmet>
-
-            <Meta
-              googleTrackingId={googleTrackingId}
-              absoluteImageUrl={
-                socialMediaCard &&
-                socialMediaCard.image &&
-                socialMediaCard.image
-              }
-              {...meta}
-              {...data.settingsYaml}
-            />
-
-            <GithubCorner url="https://github.com/thriveweb/yellowcake" />
-
-            <Nav subNav={subNav} />
-
-            <Fragment>{children}</Fragment>
-
-            <Footer />
-          </Fragment>
-        )
-      }}
-    />
+  return (
+    <>
+      <div
+        style={{
+          margin: `0 auto`,
+          minWidth: 500,
+          maxWidth: 1024,
+          padding: `0px 1.0875rem 1.45rem`,
+          paddingTop: 0,
+        }}
+      >
+        <main>
+          {children}
+        </main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+        </footer>
+      </div>
+    </>
   )
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout
