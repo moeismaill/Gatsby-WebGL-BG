@@ -1,9 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout-2"
 import SEO from "../components/seo"
-import Button from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button"
 
 const SecondPage = () => (
   <Layout>
