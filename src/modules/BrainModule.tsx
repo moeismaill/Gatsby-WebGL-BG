@@ -20,13 +20,46 @@ import Typography from "@material-ui/core/Typography"
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
-    maxHeight: 350,
+    maxWidth: 300,
   },
   media: {
     height: 140,
   },
 })
+
+const InterviewCard = () => {
+  const classes = useStyles()
+
+  return (
+    <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          alt="Contemplative Reptile"
+          height="160"
+          image="https://images.unsplash.com/photo-1497015289639-54688650d173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
+          title="Interview1"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Interview
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            This was me and Dr...
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+  )
+}
 
 const ADHDCard = () => {
   const classes = useStyles()
@@ -80,7 +113,7 @@ const ADHDCard2 = () => {
             How does ADHD effect me?
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          Brain activity that affects attention...
+            Brain activity that affects attention...
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -242,7 +275,11 @@ class WindowFrame extends React.Component {
                     <h1 className="sectionOne__title">Home</h1>
                     <p className="sectionOne__subtitle">Home Sub</p>
                   </div>
-                  <div className="sectionTwo__content"></div>
+                  <div className="sectionTwo__content">
+                    <ul className="box-grid">
+                      <InterviewCard />
+                    </ul>
+                  </div>
                 </div>
               </Observer>
               <Observer onChange={this.triggerAdhdAnim}>
