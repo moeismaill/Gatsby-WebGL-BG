@@ -80,7 +80,7 @@ const ADHDCard2 = () => {
             How does ADHD effect me?
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Development and brain activity that affect attention...
+          Brain activity that affects attention...
           </Typography>
         </CardContent>
       </CardActionArea>
