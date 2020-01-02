@@ -1,21 +1,9 @@
 var plugins = [{
-      plugin: require('/Users/ismail/Projects/Gatsby-WEBGL-BG/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
+      plugin: require('/Users/moeismail/node-projects/gatsby-projects/gatsby-creative/node_modules/gatsby-plugin-react-helmet/gatsby-ssr'),
       options: {"plugins":[]},
     },{
-      plugin: require('/Users/ismail/Projects/Gatsby-WEBGL-BG/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
-      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"starter","start_url":"/","background_color":"#000000","theme_color":"#f7f0eb","display":"standalone","icon":"src/images/gatsby-icon.png"},
-    },{
-      plugin: require('/Users/ismail/Projects/Gatsby-WEBGL-BG/node_modules/gatsby-plugin-styled-components/gatsby-ssr'),
-      options: {"plugins":[]},
-    },{
-      plugin: require('/Users/ismail/Projects/Gatsby-WEBGL-BG/node_modules/gatsby-plugin-webfonts/gatsby-ssr'),
-      options: {"plugins":[],"fonts":{"google":[{"family":"Roboto","variants":["300","400","500"]}]}},
-    },{
-      plugin: require('/Users/ismail/Projects/Gatsby-WEBGL-BG/node_modules/@raae/gatsby-remark-oembed/gatsby-ssr'),
-      options: {"plugins":[],"usePrefix":["oembed","video"],"providers":{"exclude":["Reddit"]}},
-    },{
-      plugin: require('/Users/ismail/Projects/Gatsby-WEBGL-BG/node_modules/gatsby-plugin-offline/gatsby-ssr'),
-      options: {"plugins":[]},
+      plugin: require('/Users/moeismail/node-projects/gatsby-projects/gatsby-creative/node_modules/gatsby-plugin-manifest/gatsby-ssr'),
+      options: {"plugins":[],"name":"gatsby-starter-default","short_name":"starter","start_url":"/","background_color":"#663399","theme_color":"#663399","display":"minimal-ui","icon":"src/images/gatsby-icon.png"},
     }]
 // During bootstrap, we write requires at top of this file which looks like:
 // var plugins = [
