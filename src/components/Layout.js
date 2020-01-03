@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 
 import '../assets/sass/business-casual.scss';
-import Footer from './Footer';
+import Footer from './footer';
 import SiteHeader from './siteheader';
 import Header from './header';
 
