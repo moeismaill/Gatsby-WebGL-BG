@@ -3,10 +3,10 @@ const pkg = require(`./package.json`);
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://jdahbur.com`,
-    title: "Jamal Dahbur's Portfolio Single Page",
-    author: "Jamal Dahbur",
-    description: "Jamal Dahbur's Portfolio Single Page App using Gatsby.js V2 Starter based on Dimension by HTML5 UP"
+    siteUrl: `https://friendly-spence-ff2856.netlify.com/`,
+    title: "Mahmoud Ismail",
+    author: "Mahmoud Ismail",
+    description: "Mahmoud's Portfolio Single Page App using Gatsby.js V2 Starter based on Dimension by HTML5 UP"
   },
   plugins: [
     'gatsby-plugin-react-helmet',
