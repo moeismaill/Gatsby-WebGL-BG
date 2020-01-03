@@ -3,7 +3,7 @@ const pkg = require(`./package.json`);
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `Mahmoud Ismail`,
+    siteUrl: `https://friendly-spence-ff2856.netlify.com/`,
     title: "Mahmoud Ismail",
     author: "Mahmoud Ismail",
     description: "Mahmoud's Portfolio Single Page App using Gatsby.js V2 Starter based on Dimension by HTML5 UP"
@@ -54,7 +54,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        //icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline'
