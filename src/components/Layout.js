@@ -1,54 +1,63 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import '../assets/sass/business-casual.scss';
+import Footer from './Footer';
+import SiteHeader from './siteheader';
+import Header from './header';
 
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  return (
-    <>
-      <div
-        style={{
-          margin: `0 auto`,
-          minWidth: 500,
-          maxWidth: 1024,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>
-          {children}
-        </main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
+class Layout extends Component {
+  render() {
+    const {
+      children,
+      noHeader,
+      noFooter,
+      noSiteHeader,
+      activeLink,
+    } = this.props;
+    return (
+      <StaticQuery
+        query={graphql`
+          query SiteTitleQuery {
+            site {
+              siteMetadata {
+                title
+              }
+            }
+          }
+        `}
+        render={data => (
+          <>
+            <Helmet
+              title={data.site.siteMetadata.title}
+              meta={[
+                { name: 'description', content: 'Casual' },
+                { name: 'keywords', content: 'site, web' },
+              ]}
+            >
+              <html lang="en" />
+            </Helmet>
+            <div className={'page-top'}>
+              {!noSiteHeader ? <SiteHeader /> : null}
+              {!noHeader ? <Header activeLink={activeLink} /> : null}
+              {children}
+              {!noFooter ? <Footer /> : null}
+            </div>
+          </>
+        )}
+      />
+    );
+  }
 }
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+  noFooter: PropTypes.bool,
+  noHeader: PropTypes.bool,
+  noSiteHeader: PropTypes.bool,
+  activeLink: PropTypes.string,
+};
 
-export default Layout
+export default Layout;
