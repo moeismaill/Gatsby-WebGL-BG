@@ -97,7 +97,7 @@ class Main extends React.Component {
           </span>
           <p>
             Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent
-            eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam
+            eleifend dignissim arcu, eleifend sapien imperdiet ac. Aliquam
             erat volutpat. Praesent urna nisi, fringila lorem et vehicula
             lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.
             Aliquam libero et malesuada fames ac ante ipsum primis in faucibus.
